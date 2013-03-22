@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="SpriteSheetPipeline.Sprite">
+    <SourceSprites>
+      <Item>Sprites/Hero/up1.png</Item>
+      <Item>Sprites/Hero/up2.png</Item>
+      <Item>Sprites/Hero/up3.png</Item>
+      <Item>Sprites/Hero/up4.png</Item>
+      <Item>Sprites/Hero/down1.png</Item>
+      <Item>Sprites/Hero/down2.png</Item>
+      <Item>Sprites/Hero/down3.png</Item>
+      <Item>Sprites/Hero/down4.png</Item>
+      <Item>Sprites/Hero/left1.png</Item>
+      <Item>Sprites/Hero/left2.png</Item>
+      <Item>Sprites/Hero/left3.png</Item>
+      <Item>Sprites/Hero/left4.png</Item>
+      <Item>Sprites/Hero/right1.png</Item>
+      <Item>Sprites/Hero/right2.png</Item>
+      <Item>Sprites/Hero/right3.png</Item>
+      <Item>Sprites/Hero/right4.png</Item>
+      <Item>Sprites/Hero/none1.png</Item>
+      <Item>Sprites/Hero/none2.png</Item>
+      <Item>Sprites/Hero/none3.png</Item>
+      <Item>Sprites/Hero/none4.png</Item>
+    </SourceSprites>
+    <FramesPerDir>4</FramesPerDir>
+    <FrameTime>0.15</FrameTime>
+  </Asset>
+</XnaContent>

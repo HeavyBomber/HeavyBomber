@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="SpriteSheetPipeline.Sprite">
+    <SourceSprites>
+      <Item>Sprites/Enemies/Enemy2/up1.png</Item>
+      <Item>Sprites/Enemies/Enemy2/up2.png</Item>
+      <Item>Sprites/Enemies/Enemy2/up3.png</Item>
+      <Item>Sprites/Enemies/Enemy2/up4.png</Item>
+      <Item>Sprites/Enemies/Enemy2/down1.png</Item>
+      <Item>Sprites/Enemies/Enemy2/down2.png</Item>
+      <Item>Sprites/Enemies/Enemy2/down3.png</Item>
+      <Item>Sprites/Enemies/Enemy2/down4.png</Item>
+      <Item>Sprites/Enemies/Enemy2/left1.png</Item>
+      <Item>Sprites/Enemies/Enemy2/left2.png</Item>
+      <Item>Sprites/Enemies/Enemy2/left3.png</Item>
+      <Item>Sprites/Enemies/Enemy2/left4.png</Item>
+      <Item>Sprites/Enemies/Enemy2/right1.png</Item>
+      <Item>Sprites/Enemies/Enemy2/right2.png</Item>
+      <Item>Sprites/Enemies/Enemy2/right3.png</Item>
+      <Item>Sprites/Enemies/Enemy2/right4.png</Item>
+      <Item>Sprites/Enemies/Enemy2/none1.png</Item>
+      <Item>Sprites/Enemies/Enemy2/none2.png</Item>
+      <Item>Sprites/Enemies/Enemy2/none3.png</Item>
+      <Item>Sprites/Enemies/Enemy2/none4.png</Item>
+      <Item>Sprites/Enemies/Enemy2/special1.png</Item>
+      <Item>Sprites/Enemies/Enemy2/special2.png</Item>
+      <Item>Sprites/Enemies/Enemy2/special3.png</Item>
+      <Item>Sprites/Enemies/Enemy2/special4.png</Item>
+    </SourceSprites>
+    <FramesPerDir>4</FramesPerDir>
+    <FrameTime>0.15</FrameTime>
+  </Asset>
+</XnaContent>

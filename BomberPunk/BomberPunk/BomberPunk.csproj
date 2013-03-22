@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{FBD9B56B-4B5A-4558-89AF-AA549081E349}</ProjectGuid>
+    <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Windows Phone</Platform>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BomberPunk</RootNamespace>
+    <AssemblyName>BomberPunk</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
+    <XnaPlatform>Windows Phone</XnaPlatform>
+    <XnaProfile>Reach</XnaProfile>
+    <XnaCrossPlatformGroupID>46ddda11-4492-4e0e-b515-13f9119f6bd4</XnaCrossPlatformGroupID>
+    <XnaOutputType>Game</XnaOutputType>
+    <XnaRefreshLevel>1</XnaRefreshLevel>
+    <WPTombstoneEnabled>false</WPTombstoneEnabled>
+    <XapFilename>$(AssemblyName).xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <XnaWindowsPhoneManifestTemplate>Properties\WMAppManifest.xml</XnaWindowsPhoneManifestTemplate>
+    <TileImage>Background.png</TileImage>
+    <TileTitle>BomberPunk</TileTitle>
+    <SupportedCultures>
+    </SupportedCultures>
+    <ApplicationIcon>Game.ico</ApplicationIcon>
+    <Thumbnail>PhoneGameThumb.png</Thumbnail>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Windows Phone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Windows Phone\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS_PHONE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <XnaCompressContent>false</XnaCompressContent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Windows Phone' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Windows Phone\Release</OutputPath>
+    <DefineConstants>TRACE;WINDOWS_PHONE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <XnaCompressContent>false</XnaCompressContent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework" />
+    <Reference Include="Microsoft.Xna.Framework.Game" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics" />
+    <Reference Include="Microsoft.Xna.Framework.GamerServices" />
+    <Reference Include="Microsoft.Xna.Framework.Input.Touch" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Net" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Effects\BackgroundTransition.cs" />
+    <Compile Include="Effects\Fog.cs" />
+    <Compile Include="GameScreens\LevelSelectionScreen.cs" />
+    <Compile Include="GameStructs\LayerIdentifiers.cs" />
+    <Compile Include="GameForms\AnimatedCogsMenu.cs" />
+    <Compile Include="GameForms\MainMenu.cs" />
+    <Compile Include="GameObjects\Blow.cs" />
+    <Compile Include="GameObjects\Bomb.cs" />
+    <Compile Include="GameObjects\DynamicText.cs" />
+    <Compile Include="GameObjects\Explosion.cs" />
+    <Compile Include="GameObjects\Board.cs" />
+    <Compile Include="GameObjects\Enemy.cs" />
+    <Compile Include="GameObjects\Player.cs" />
+    <Compile Include="GameObjects\PowerUp.cs" />
+    <Compile Include="GameObjects\Pulse.cs" />
+    <Compile Include="GameObjects\TerrainTile.cs" />
+    <Compile Include="GameScreens\LevelScreen.cs" />
+    <Compile Include="GameScreens\MainMenuScreen.cs" />
+    <Compile Include="GameStructs\PointsIdentifiers.cs" />
+    <Compile Include="GameStructs\ShadowIdentifiers.cs" />
+    <Compile Include="GameStructs\PowerUps.cs" />
+    <Compile Include="GameStructs\TerrainBehaviors.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameStructs\TerrainIdentifiers.cs" />
+    <Compile Include="Controls\Button.cs" />
+    <Compile Include="Controls\Gauge.cs" />
+    <Compile Include="Controls\AnimatedDigit.cs" />
+    <Compile Include="Controls\Hud.cs" />
+    <Compile Include="Managers\ComboManager.cs" />
+    <Compile Include="Processors\EnemyProcessor.cs" />
+    <Compile Include="Processors\LevelProcessor.cs" />
+    <Compile Include="ObjectData\EnemyData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GameStructs\Gauges.cs" />
+    <None Include="Properties\AppManifest.xml">
+      <XnaPlatformSpecific>true</XnaPlatformSpecific>
+    </None>
+    <None Include="Properties\WMAppManifest.xml">
+      <XnaPlatformSpecific>true</XnaPlatformSpecific>
+    </None>
+    <Compile Include="Program.cs" />
+    <Compile Include="BomberGame.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Game.ico" />
+    <Content Include="PhoneGameThumb.png">
+      <XnaPlatformSpecific>true</XnaPlatformSpecific>
+    </Content>
+    <Content Include="Background.png">
+      <XnaPlatformSpecific>true</XnaPlatformSpecific>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Core.csproj">
+      <Project>{9662AD4D-F203-4F88-951F-3F15544EBFF0}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GameEntities\GameEntities.csproj">
+      <Project>{11F06A7A-F7ED-465E-9B4C-1046BC4BDEA5}</Project>
+      <Name>GameEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Graphics\Graphics.csproj">
+      <Project>{5CD4D034-D6A4-477B-AAFF-AF6207B786EF}</Project>
+      <Name>Graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PhantomEngine\PhantomEngine.csproj">
+      <Project>{3F5F6223-FB64-4B65-B760-7F569F67BB4A}</Project>
+      <Name>PhantomEngine %28PhantomEngine\PhantomEngine%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Renderer\Renderer.csproj">
+      <Project>{7A8C6AB7-7ABF-4D41-9F42-6AB1814719D2}</Project>
+      <Name>Renderer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sound\Sound.csproj">
+      <Project>{EDBE9182-03A5-4F01-8DA2-F9E34FE116C4}</Project>
+      <Name>Sound</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SpriteSheetRuntime\SpriteSheetRuntime %28Phone%29.csproj">
+      <Project>{6D76C269-1388-421C-9057-71A1EC1D1E7A}</Project>
+      <Name>SpriteSheetRuntime %28Phone%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\XMLContent\XMLContent.csproj">
+      <Project>{E2FFADAD-2230-40BB-AE05-04064E303FA0}</Project>
+      <Name>XMLContent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BomberPunkContent\BomberPunkContent.contentproj">
+      <Name>BomberPunkContent %28Content%29</Name>
+      <XnaReferenceType>Content</XnaReferenceType>
+      <Project>{B62B631D-3849-44BE-9F3F-D82FCB3BF971}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Enums\" />
+    <Folder Include="HUD\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
+  <!--
+      To modify your build process, add your task inside one of the targets below and uncomment it. 
+      Other similar extension points exist, see Microsoft.Common.targets.
+      <Target Name="BeforeBuild">
+      </Target>
+      <Target Name="AfterBuild">
+      </Target>
+    -->
+</Project>

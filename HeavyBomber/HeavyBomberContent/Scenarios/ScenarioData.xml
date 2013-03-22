@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="XMLContent.ScenarioList">
+    <Scenarios>
+      <Item>
+        <Name>Campaign</Name>
+        <Description>Main game campaign</Description>
+        <LevelPaths>
+          <Item>Scenarios/Campaign/Level1</Item>
+          <Item>Scenarios/Campaign/Level2</Item>
+        </LevelPaths>
+      </Item>
+    </Scenarios>
+  </Asset>
+</XnaContent>

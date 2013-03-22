@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="SpriteSheetPipeline.Sprite">
+    <SourceSprites>
+      <Item>Sprites/UI/HUD/Digit/digit1.png</Item>
+      <Item>Sprites/UI/HUD/Digit/digit2.png</Item>
+      <Item>Sprites/UI/HUD/Digit/digit3.png</Item>
+    </SourceSprites>
+    <FramesPerDir>3</FramesPerDir>
+    <FrameTime>0.15</FrameTime>
+  </Asset>
+</XnaContent>

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="XMLContent.ComboList">
+    <Combos>
+      <Item>
+        <Name>triple blaster</Name>
+        <Description>At least three explosions</Description>
+        <Explosions>3</Explosions>
+        <Kills>0</Kills>
+        <Points>3</Points>
+      </Item>
+      <Item>
+        <Name>destroyer</Name>
+        <Description>At least four explosions</Description>
+        <Explosions>4</Explosions>
+        <Kills>0</Kills>
+        <Points>4</Points>
+      </Item>
+      <Item>
+        <Name>nuke master</Name>
+        <Description>At least five explosions</Description>
+        <Explosions>5</Explosions>
+        <Kills>0</Kills>
+        <Points>5</Points>
+      </Item>
+      <Item>
+        <Name>double killer</Name>
+        <Description>At least two kills with one explosion</Description>
+        <Explosions>1</Explosions>
+        <Kills>2</Kills>
+        <Points>5</Points>
+      </Item>
+      <Item>
+        <Name>triple killer</Name>
+        <Description>At least three kills with one explosion</Description>
+        <Explosions>1</Explosions>
+        <Kills>3</Kills>
+        <Points>10</Points>
+      </Item>
+      <Item>
+        <Name>mad butcher</Name>
+        <Description>At least four kills with at most two explosions</Description>
+        <Explosions>2</Explosions>
+        <Kills>4</Kills>
+        <Points>15</Points>
+      </Item>
+      <Item>
+        <Name>serial killer</Name>
+        <Description>At least four kills with one explosion</Description>
+        <Explosions>1</Explosions>
+        <Kills>4</Kills>
+        <Points>20</Points>
+      </Item>
+      <Item>
+        <Name>devil's child</Name>
+        <Description>At least five kills with at most two explosions</Description>
+        <Explosions>2</Explosions>
+        <Kills>5</Kills>
+        <Points>25</Points>
+      </Item>
+      <Item>
+        <Name>lucifer</Name>
+        <Description>At least six kills with at most three explosions</Description>
+        <Explosions>3</Explosions>
+        <Kills>6</Kills>
+        <Points>25</Points>
+      </Item>
+      <Item>
+        <Name>mass murderer</Name>
+        <Description>At least eight kills with no explosion limit</Description>
+        <Explosions>0</Explosions>
+        <Kills>8</Kills>
+        <Points>30</Points>
+      </Item>
+    </Combos>
+  </Asset>
+</XnaContent>

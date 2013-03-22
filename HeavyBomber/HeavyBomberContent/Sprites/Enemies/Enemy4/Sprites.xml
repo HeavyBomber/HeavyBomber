@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="SpriteSheetPipeline.Sprite">
+    <SourceSprites>
+      <Item>Sprites/Enemies/Enemy4/up1.png</Item>
+      <Item>Sprites/Enemies/Enemy4/up2.png</Item>
+      <Item>Sprites/Enemies/Enemy4/up3.png</Item>
+      <Item>Sprites/Enemies/Enemy4/up4.png</Item>
+      <Item>Sprites/Enemies/Enemy4/up5.png</Item>
+      <Item>Sprites/Enemies/Enemy4/up6.png</Item>
+      <Item>Sprites/Enemies/Enemy4/down1.png</Item>
+      <Item>Sprites/Enemies/Enemy4/down2.png</Item>
+      <Item>Sprites/Enemies/Enemy4/down3.png</Item>
+      <Item>Sprites/Enemies/Enemy4/down4.png</Item>
+      <Item>Sprites/Enemies/Enemy4/down5.png</Item>
+      <Item>Sprites/Enemies/Enemy4/down6.png</Item>
+      <Item>Sprites/Enemies/Enemy4/left1.png</Item>
+      <Item>Sprites/Enemies/Enemy4/left2.png</Item>
+      <Item>Sprites/Enemies/Enemy4/left3.png</Item>
+      <Item>Sprites/Enemies/Enemy4/left4.png</Item>
+      <Item>Sprites/Enemies/Enemy4/left5.png</Item>
+      <Item>Sprites/Enemies/Enemy4/left6.png</Item>
+      <Item>Sprites/Enemies/Enemy4/right1.png</Item>
+      <Item>Sprites/Enemies/Enemy4/right2.png</Item>
+      <Item>Sprites/Enemies/Enemy4/right3.png</Item>
+      <Item>Sprites/Enemies/Enemy4/right4.png</Item>
+      <Item>Sprites/Enemies/Enemy4/right5.png</Item>
+      <Item>Sprites/Enemies/Enemy4/right6.png</Item>
+      <Item>Sprites/Enemies/Enemy4/none1.png</Item>
+      <Item>Sprites/Enemies/Enemy4/none2.png</Item>
+      <Item>Sprites/Enemies/Enemy4/none3.png</Item>
+      <Item>Sprites/Enemies/Enemy4/none4.png</Item>
+      <Item>Sprites/Enemies/Enemy4/none5.png</Item>
+      <Item>Sprites/Enemies/Enemy4/none6.png</Item>
+      <Item>Sprites/Enemies/Enemy4/special1.png</Item>
+      <Item>Sprites/Enemies/Enemy4/special2.png</Item>
+      <Item>Sprites/Enemies/Enemy4/special3.png</Item>
+      <Item>Sprites/Enemies/Enemy4/special4.png</Item>
+      <Item>Sprites/Enemies/Enemy4/special5.png</Item>
+      <Item>Sprites/Enemies/Enemy4/special6.png</Item>
+    </SourceSprites>
+    <FramesPerDir>6</FramesPerDir>
+    <FrameTime>0.15</FrameTime>
+  </Asset>
+</XnaContent>

@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{AB845701-0AB2-44EF-A2A2-05A60156980D}</ProjectGuid>
+    <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Windows Phone</Platform>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HeavyBomber</RootNamespace>
+    <AssemblyName>HeavyBomber</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
+    <XnaPlatform>Windows Phone</XnaPlatform>
+    <XnaProfile>Reach</XnaProfile>
+    <XnaCrossPlatformGroupID>c7bb30f5-9816-4e8e-ad12-921b1d3a3964</XnaCrossPlatformGroupID>
+    <XnaOutputType>Game</XnaOutputType>
+    <XnaRefreshLevel>1</XnaRefreshLevel>
+    <WPTombstoneEnabled>false</WPTombstoneEnabled>
+    <XapFilename>$(AssemblyName).xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <XnaWindowsPhoneManifestTemplate>Properties\WMAppManifest.xml</XnaWindowsPhoneManifestTemplate>
+    <TileImage>Background.png</TileImage>
+    <TileTitle>HeavyBomber</TileTitle>
+    <SupportedCultures>
+    </SupportedCultures>
+    <ApplicationIcon>Game.ico</ApplicationIcon>
+    <Thumbnail>PhoneGameThumb.png</Thumbnail>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Windows Phone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Windows Phone\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS_PHONE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <XnaCompressContent>false</XnaCompressContent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Windows Phone' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Windows Phone\Release</OutputPath>
+    <DefineConstants>TRACE;WINDOWS_PHONE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <XnaCompressContent>false</XnaCompressContent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework" />
+    <Reference Include="Microsoft.Xna.Framework.Game" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics" />
+    <Reference Include="Microsoft.Xna.Framework.GamerServices" />
+    <Reference Include="Microsoft.Xna.Framework.Input.Touch" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Net" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameForms\AnimatedCogsMenu.cs" />
+    <Compile Include="GameForms\MainMenu.cs" />
+    <Compile Include="GameScreens\MainMenuScreen.cs" />
+    <Compile Include="GameStructs\Gauges.cs" />
+    <Compile Include="GameStructs\LayerIdentifiers.cs" />
+    <Compile Include="GameStructs\PointsIdentifiers.cs" />
+    <Compile Include="GameStructs\PowerUps.cs" />
+    <Compile Include="GameStructs\ShadowIdentifiers.cs" />
+    <Compile Include="GameStructs\TerrainBehaviors.cs" />
+    <Compile Include="GameStructs\TerrainIdentifiers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Properties\AppManifest.xml">
+      <XnaPlatformSpecific>true</XnaPlatformSpecific>
+    </None>
+    <None Include="Properties\WMAppManifest.xml">
+      <XnaPlatformSpecific>true</XnaPlatformSpecific>
+    </None>
+    <Compile Include="Program.cs" />
+    <Compile Include="HeavyBomberGame.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Game.ico" />
+    <Content Include="PhoneGameThumb.png">
+      <XnaPlatformSpecific>true</XnaPlatformSpecific>
+    </Content>
+    <Content Include="Background.png">
+      <XnaPlatformSpecific>true</XnaPlatformSpecific>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Core.csproj">
+      <Project>{9662AD4D-F203-4F88-951F-3F15544EBFF0}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GameObjects\GameObjects.csproj">
+      <Project>{5042F635-B83A-4AB7-BA79-8C98FBB9879D}</Project>
+      <Name>GameObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\HeavyBomberPrefabricates\HeavyBomberPrefabricates.csproj">
+      <Project>{C370B560-9260-4EFF-9669-824426FAE9FD}</Project>
+      <Name>HeavyBomberPrefabricates</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MathFunctions\MathFunctions.csproj">
+      <Project>{8F4F4499-6C9E-4F7F-AE99-6833AC6A4EC6}</Project>
+      <Name>MathFunctions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Prefabricates\Prefabricates.csproj">
+      <Project>{767B961D-2371-4469-9D73-CB149E3F7167}</Project>
+      <Name>Prefabricates</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PublicIterfaces\PublicIterfaces.csproj">
+      <Project>{07D7106A-09BC-4CA2-ACC4-EDF5A510E8A5}</Project>
+      <Name>PublicIterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\StateManagement\StateManagement.csproj">
+      <Project>{13E2E6F9-3973-46B7-9B6F-A3B77D9D1C88}</Project>
+      <Name>StateManagement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UserInterface\UserInterface.csproj">
+      <Project>{15339542-6EE4-436B-8B0F-8CC9C73C7B07}</Project>
+      <Name>UserInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\XMLContent\XMLContent.csproj">
+      <Project>{E2FFADAD-2230-40BB-AE05-04064E303FA0}</Project>
+      <Name>XMLContent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HeavyBomberContent\HeavyBomberContent.contentproj">
+      <Name>HeavyBomberContent %28Content%29</Name>
+      <XnaReferenceType>Content</XnaReferenceType>
+      <Project>{4D43D131-4539-4107-8DC7-3B0D973CD543}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
+  <!--
+      To modify your build process, add your task inside one of the targets below and uncomment it. 
+      Other similar extension points exist, see Microsoft.Common.targets.
+      <Target Name="BeforeBuild">
+      </Target>
+      <Target Name="AfterBuild">
+      </Target>
+    -->
+</Project>

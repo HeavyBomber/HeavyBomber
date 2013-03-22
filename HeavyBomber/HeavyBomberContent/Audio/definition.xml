@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="XMLContent.AudioData">
+    <Sounds>
+      <Item>bell</Item>
+      <Item>blow</Item>
+      <Item>click</Item>
+      <Item>horseDeath</Item>
+      <Item>cogs</Item>
+      <Item>menuclick</Item>
+    </Sounds>
+  </Asset>
+</XnaContent>

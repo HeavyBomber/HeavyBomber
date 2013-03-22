@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="XMLContent.EnemyDefinition">
+    <MovePattern>
+      <FindsPlayer>DoNothing</FindsPlayer>
+      <NearBomb>DoNothing</NearBomb>
+    </MovePattern>
+    <Sight>5</Sight>
+    <Speed>25</Speed>
+    <Health>1</Health>
+    <Sound>horseDeath</Sound>
+    <ShadowId>2</ShadowId>
+  </Asset>
+</XnaContent>

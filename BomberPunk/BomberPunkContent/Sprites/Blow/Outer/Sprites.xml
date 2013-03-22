@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="SpriteSheetPipeline.Sprite">
+    <SourceSprites>
+      <Item>Sprites/Blow/Outer/blow1.png</Item>
+      <Item>Sprites/Blow/Outer/blow2.png</Item>
+      <Item>Sprites/Blow/Outer/blow3.png</Item>
+      <Item>Sprites/Blow/Outer/blow4.png</Item>
+      <Item>Sprites/Blow/Outer/blow5.png</Item>
+      <Item>Sprites/Blow/Outer/blow6.png</Item>
+      <Item>Sprites/Blow/Outer/blow7.png</Item>
+      <Item>Sprites/Blow/Outer/blow8.png</Item>
+      <Item>Sprites/Blow/Outer/blow9.png</Item>
+    </SourceSprites>
+    <FramesPerDir>9</FramesPerDir>
+    <FrameTime>0.15</FrameTime>
+  </Asset>
+</XnaContent>

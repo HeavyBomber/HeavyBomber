@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="SpriteSheetPipeline.Sprite">
+    <SourceSprites>
+      <Item>Sprites/UI/button/button1.png</Item>
+      <Item>Sprites/UI/button/button2.png</Item>
+      <Item>Sprites/UI/button/button3.png</Item>
+      <Item>Sprites/UI/button/button4.png</Item>
+    </SourceSprites>
+    <FramesPerDir>4</FramesPerDir>
+    <FrameTime>0.15</FrameTime>
+  </Asset>
+</XnaContent>
