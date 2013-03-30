@@ -75,6 +75,10 @@
       <Project>{5042F635-B83A-4AB7-BA79-8C98FBB9879D}</Project>
       <Name>GameObjects</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Input\Input.csproj">
+      <Project>{ED612D7D-1653-4552-9E19-FF0F43DAB8BA}</Project>
+      <Name>Input</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Prefabricates\Prefabricates.csproj">
       <Project>{767B961D-2371-4469-9D73-CB149E3F7167}</Project>
       <Name>Prefabricates</Name>

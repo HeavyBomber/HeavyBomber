@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using PublicIterfaces.GameObjects;
+using PublicIterfaces.BasicGameObjects;
 
 namespace PublicIterfaces
 {
     public abstract class GameObjectBase : IGameObject
     {
-        private bool inUse;
+        protected bool isInUse;
         protected List<IGameObject> children = new List<IGameObject>();
 
         public List<IGameObject> GetChildren()
@@ -24,17 +24,21 @@ namespace PublicIterfaces
 
         public virtual bool IsInUse()
         {
-            return inUse;
+            return isInUse;
         }
 
         public virtual void Init()
         {
-            this.inUse = true;
+            this.isInUse = true;
         }
 
         public void Dispose()
         {
-            this.inUse = false;
+            this.isInUse = false;
+            foreach (var gameObject in children)
+            {
+                gameObject.Dispose();
+            }
         }
     }
 }

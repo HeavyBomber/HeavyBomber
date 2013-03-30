@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace PublicIterfaces.GameObjects
+namespace PublicIterfaces.BasicGameObjects
 {
     public interface IGameObject
     {

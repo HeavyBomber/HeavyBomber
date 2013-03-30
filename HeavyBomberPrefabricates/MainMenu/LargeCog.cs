@@ -22,6 +22,8 @@ namespace HeavyBomberPrefabricates.MainMenu
         private Drawable2DContainer currentMenu;
 
         public event EventHandler MenuChanged;
+        public event EventHandler StartClicked;
+
 
         public LargeCog(IGameObjectsFactory gameObjectsFactory, IUserInterfaceFactory userInterfaceFactory)
         {
@@ -29,12 +31,13 @@ namespace HeavyBomberPrefabricates.MainMenu
             this.userInterfaceFactory = userInterfaceFactory;
         }
 
+
         public override void Init()
         {
             this.SetRootOrigin(new Vector2(0, 480));
 
             const string LARGE_COG_PATH = "Sprites/UI/Menu/largeCog";
-            this.cog = gameObjectsFactory.CreateSpriteObject(LARGE_COG_PATH);
+            this.cog = gameObjectsFactory.CreateSprite(LARGE_COG_PATH);
             cog.SetRelativePosition(new Vector2(-602, -122));
             cog.Init();
             this.AddChild(cog);
@@ -84,7 +87,7 @@ namespace HeavyBomberPrefabricates.MainMenu
         {
             const string FONT_PATH = "Fonts/forque";
             Drawable2DComposite font = gameObjectsFactory.CreateFont(FONT_PATH, caption);
-            var buttonTexture = gameObjectsFactory.CreateSpriteObject("Sprites/UI/Menu/buttonBackground");
+            var buttonTexture = gameObjectsFactory.CreateSprite("Sprites/UI/Menu/buttonBackground");
             Drawable2DComposite button = userInterfaceFactory.CreateButton(buttonTexture, font, 20, handler);
 
             return button;
@@ -110,9 +113,9 @@ namespace HeavyBomberPrefabricates.MainMenu
             settingsMenu.Show();
             exitConfirmationMenu.Hide();
 
-            if (MenuChanged != null)
+            if (StartClicked != null)
             {
-                MenuChanged(this, EventArgs.Empty);
+                StartClicked(this, EventArgs.Empty);
             }
         }
 

@@ -323,7 +323,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <Name>Sprites</Name>
       <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
+      <Processor>SpriteSheetProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -531,6 +531,13 @@
       <Project>{E2FFADAD-2230-40BB-AE05-04064E303FA0}</Project>
       <Name>XMLContent</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Hero\down1.png">
+      <Name>down1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

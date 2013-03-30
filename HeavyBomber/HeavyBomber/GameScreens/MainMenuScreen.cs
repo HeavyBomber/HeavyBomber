@@ -1,34 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using BomberPunk.GameStructs;
 using GameObjects.Factories;
 using HeavyBomber.GameForms;
-using HeavyBomber.GameStructs;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
-using PublicIterfaces;
 using PublicIterfaces.GameObjectsFactories;
 using StateManagement;
-using UserInterface.UI;
 
 namespace HeavyBomber.GameScreens
 {
     internal class MainMenuScreen : GameScreenBase
     {
-        //private List<MenuForm> menuForms;
-        private bool duringInit;
-        private Texture2D backgroundTexture;
-        private IGameObjectsFactory objectsFactory;
-
         private AnimatedCogsMenu cogsMenu;
 
         public MainMenuScreen(IGameObjectsFactory gameObjectsFactory, IUserInterfaceFactory interfaceFactory)
         {
-            this.objectsFactory = gameObjectsFactory;
+            cogsMenu = new AnimatedCogsMenu(gameObjectsFactory, interfaceFactory);
+        }
 
-            cogsMenu = new AnimatedCogsMenu(objectsFactory, interfaceFactory);
-            //this.ObjectsPool = objectsFactory.getObjectsPool();
+        public override void Dispose()
+        {
+            cogsMenu.Dispose();
         }
 
         public override void Update(GameTime gameTime)
@@ -51,15 +41,6 @@ namespace HeavyBomber.GameScreens
             //}
         }
 
-        public override void Visit(ISpriteDrawer drawer)
-        {
-            drawer.Accept(objectsFactory.GetDrawableObjects());
-        }
-
-        public override void Visit(ISpriteFontDrawer drawer)
-        {
-            drawer.Accept(objectsFactory.GetDrawableFonts());
-        }
 
         //public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         //{
@@ -75,21 +56,13 @@ namespace HeavyBomber.GameScreens
 
         public override void Init()
         {
-            duringInit = true;
-            const string BACKGROUND_PATH = "Sprites/UI/background";
-            
-            var background = objectsFactory.CreateSpriteObject(BACKGROUND_PATH);
-            //background.SetRootOrigin(new Vector2(400,240));
-            //background.setRotation(0.1f);
-            //background.SetRelativePosition(new Vector2(400,240));
+            cogsMenu.GameStared += onGameStarted;
             cogsMenu.Init();
-            //menuForms = new List<MenuForm>();
-            //menuForms.Add(new AnimatedCogsMenu(content));
         }
 
-        public override void Dispose()
+        private void onGameStarted(object sender, EventArgs e)
         {
-            objectsFactory.Dispose();
+            requestStateChange("gameplay");
         }
     }
 }

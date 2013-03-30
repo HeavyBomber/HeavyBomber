@@ -1,4 +1,4 @@
-﻿using PublicIterfaces.GameObjects;
+﻿using PublicIterfaces.BasicGameObjects;
 
 namespace GameObjects.ResourcePool
 {

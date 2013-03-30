@@ -6,20 +6,20 @@ using Microsoft.Xna.Framework.Content;
 using PublicIterfaces;
 using PublicIterfaces.BasicGameObjects;
 using PublicIterfaces.BasicGameObjects.Presentation;
-using PublicIterfaces.GameObjects;
 using PublicIterfaces.GameObjectsFactories;
+using PublicIterfaces.Graphics2d;
 
 namespace GameObjects.Factories
 {
     class GameObjectsFactory : GameObjectsFacoryBase, IGameObjectsFactory
     {
-        protected ISpritesFactory spritesFactory;
-        private IList<ISpritePresentation> drawableObjects = new List<ISpritePresentation>();
-        private IList<IFontPresentation> drawableFonts = new List<IFontPresentation>(); 
-
-        public GameObjectsFactory(ISpritesFactory spritesFactory)
+        private ISpritesFactory spritesFactory;
+        private IVirtualScreen virtualScreen;
+      
+        public GameObjectsFactory(ISpritesFactory spritesFactory, IVirtualScreen virtualScreen)
         {
             this.spritesFactory = spritesFactory;
+            this.virtualScreen = virtualScreen;
         }
 
         public void SetContentManager(ContentManager content)
@@ -27,16 +27,24 @@ namespace GameObjects.Factories
             spritesFactory.SetContentManager(content);
         }
 
-        public Drawable2DComposite CreateSpriteObject(string path)
+        public Drawable2DComposite CreateSprite(string path)
         {
             ISprite texture = spritesFactory.CreateSpriteFromPath(path);
-            DrawableSpriteObject drawable = fetchObject<DrawableSpriteObject>();
+            DrawableSprite drawable = fetchObject<DrawableSprite>();
             drawable.Color = Color.White;
             drawable.SetSprite(texture);
-            if(!drawableObjects.Contains(drawable))
-            {
-                drawableObjects.Add(drawable);
-            }
+            virtualScreen.PutOnScreen(drawable);
+            drawable.Init();
+            return drawable;
+        }
+
+        public Drawable2DComposite CreateAnimatedSprite(string path)
+        {
+            IAnimatedSprite texture = spritesFactory.CreateAnimatedSpriteFromPath(path);
+            DrawableAnimatedSprite drawable = fetchObject<DrawableAnimatedSprite>();
+            drawable.Color = Color.White;
+            drawable.SetSprite(texture);
+            virtualScreen.PutOnScreen(drawable);
             drawable.Init();
             return drawable;
         }
@@ -44,32 +52,14 @@ namespace GameObjects.Factories
         public Drawable2DComposite CreateFont(string spriteFontPath, string caption)
         {
             IFont font = spritesFactory.CreateFontFromPath(spriteFontPath);
-            DrawableFontObject drawableFont = fetchObject<DrawableFontObject>();
+            DrawableFont drawableFont = fetchObject<DrawableFont>();
             drawableFont.SetFont(font);
             drawableFont.Color = Color.White;
             drawableFont.SetCaption(caption);
-            if (!drawableFonts.Contains(drawableFont))
-            {
-                drawableFonts.Add(drawableFont);
-            }
+            virtualScreen.PutOnScreen(drawableFont);
             drawableFont.Init();
 
             return drawableFont;
-        }
-
-        public IList<ISpritePresentation> GetDrawableObjects()
-        {
-            return drawableObjects;
-        }
-
-        public IList<IFontPresentation> GetDrawableFonts()
-        {
-            return drawableFonts;
-        }
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="GameForms\AnimatedCogsMenu.cs" />
     <Compile Include="GameForms\MainMenu.cs" />
+    <Compile Include="GameScreens\LevelScreen.cs" />
     <Compile Include="GameScreens\MainMenuScreen.cs" />
     <Compile Include="GameStructs\Gauges.cs" />
     <Compile Include="GameStructs\LayerIdentifiers.cs" />
@@ -106,6 +107,10 @@
     <ProjectReference Include="..\..\HeavyBomberPrefabricates\HeavyBomberPrefabricates.csproj">
       <Project>{C370B560-9260-4EFF-9669-824426FAE9FD}</Project>
       <Name>HeavyBomberPrefabricates</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Input\Input.csproj">
+      <Project>{ED612D7D-1653-4552-9E19-FF0F43DAB8BA}</Project>
+      <Name>Input</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\MathFunctions\MathFunctions.csproj">
       <Project>{8F4F4499-6C9E-4F7F-AE99-6833AC6A4EC6}</Project>

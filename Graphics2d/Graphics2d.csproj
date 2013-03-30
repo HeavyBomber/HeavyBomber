@@ -65,17 +65,22 @@
     <Compile Include="Camera2D.cs" />
     <Compile Include="GraphicsModule.cs" />
     <Compile Include="SpriteDrawer.cs" />
-    <Compile Include="ICamera2D.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpriteFontDrawer.cs" />
     <Compile Include="SpritesFactory.cs" />
+    <Compile Include="Sprites\AnimatedSprite.cs" />
     <Compile Include="Sprites\Font.cs" />
     <Compile Include="Sprites\Sprite.cs" />
+    <Compile Include="VirtualScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PublicIterfaces\PublicIterfaces.csproj">
       <Project>{07D7106A-09BC-4CA2-ACC4-EDF5A510E8A5}</Project>
       <Name>PublicIterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpriteSheetRuntime\SpriteSheetRuntime %28Phone%29.csproj">
+      <Project>{6D76C269-1388-421C-9057-71A1EC1D1E7A}</Project>
+      <Name>SpriteSheetRuntime %28Phone%29</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

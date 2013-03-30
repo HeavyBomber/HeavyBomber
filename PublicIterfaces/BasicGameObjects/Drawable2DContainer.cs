@@ -75,6 +75,15 @@ namespace PublicIterfaces.BasicGameObjects
             this.rotation += rotationDelta;
         }
 
+        public override void Dispose()
+        {
+            foreach (var drawable2DComposite in children)
+            {
+                drawable2DComposite.Dispose();
+            }
+            base.Dispose();
+        }
+
         private void updateChildrenRotation(float rotationDelta)
         {
             foreach (var drawable2DComposite in children)

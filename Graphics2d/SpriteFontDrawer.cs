@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using PublicIterfaces;
 using Microsoft.Xna.Framework.Graphics;
+using PublicIterfaces.BasicGameObjects;
+using PublicIterfaces.Graphics2d;
 
 namespace Graphics2d
 {

@@ -2,8 +2,9 @@
 {
     public interface IStateManager
     {
-        void registerStateChange(string state, GameScreenBase gameScreen);
-        void registerStateChangeListener(IStateChangeListener listener);
-        //void registerState(string stateName);
+        void RegisterStateChange(string state, GameScreenBase gameScreen);
+        void RegisterStateChangeListener(IStateChangeListener listener);
+        void SetState(string newState);
+        //void RegisterState(string stateName);
     }
 }

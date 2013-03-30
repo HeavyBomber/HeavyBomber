@@ -1,16 +1,15 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using PublicIterfaces.GameObjects;
 
 namespace PublicIterfaces.BasicGameObjects
 {
     public abstract class Drawable2DComposite : IGameObject
     {
         private Drawable2DComposite parent;
-        private bool inUse;
+        private bool isInUse;
         private bool isVisible;
         protected float rotation;
-        private Vector2 relativePosition;
+        protected Vector2 relativePosition;
         private Color color = Color.White;
 
         public Drawable2DComposite()
@@ -76,19 +75,19 @@ namespace PublicIterfaces.BasicGameObjects
 
         public virtual bool IsInUse()
         {
-            return inUse;
+            return isInUse;
         }
 
         public virtual void Init()
         {
-            this.inUse = true;
+            this.isInUse = true;
         }
 
         public abstract Rectangle GetBounds();
 
-        public void Dispose()
+        public virtual void Dispose()
         {
-            this.inUse = false;
+            this.isInUse = false;
         }
 
         public virtual void SetRotation(float newRotation)
@@ -105,7 +104,8 @@ namespace PublicIterfaces.BasicGameObjects
 
         public bool IsVisible()
         {
-            return isVisible;
+            //return true;
+            return isVisible && isInUse;
         }
 
         public virtual void Hide()

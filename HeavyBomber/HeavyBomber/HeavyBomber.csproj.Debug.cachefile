@@ -23,7 +23,6 @@ Content\Sprites\Enemies\Enemy4\Data.xnb
 Content\Sprites\Enemies\Enemy4\Sprites.xnb
 Content\Sprites\Enemies\Enemy5\Data.xnb
 Content\Sprites\Enemies\Enemy5\Sprites.xnb
-Content\Sprites\Hero\Sprites.xnb
 Content\Sprites\UI\Button\Sprites.xnb
 Content\Sprites\UI\HUD\Digit\Sprites.xnb
 Content\UI\hudData.xnb
@@ -65,6 +64,8 @@ Content\Sprites\UI\Menu\smallCog.xnb
 Content\Fonts\font.xnb
 Content\Fonts\menufont.xnb
 Content\Fonts\verdana.xnb
+Content\Sprites\Hero\down1.xnb
+Content\Sprites\Hero\Sprites.xnb
 Content\Audio\blow.wma
 Content\Audio\click.wma
 Content\Audio\cogs.wma

@@ -2,6 +2,6 @@
 {
     public interface IStateChangeListener
     {
-        void stateChanged(GameScreenBase gameScreen);
+        void StateChanged(GameScreenBase gameScreen);
     }
 }

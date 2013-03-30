@@ -26,6 +26,7 @@ namespace StateManagement
     class StateManager : IStateManager
     {
         private IStateChangeListener screenChangeListener;
+        
         // the name of the current state
         protected string currentState = string.Empty;
         private GameScreenBase currentScreen;
@@ -47,7 +48,7 @@ namespace StateManagement
 
         public void endCurrentState()
         {
-            setState(States.END_STATE);
+            SetState(States.END_STATE);
         }
 
         protected void updateStates()
@@ -95,6 +96,8 @@ namespace StateManagement
 
                         currentState = stateChangeRequest;
                         currentScreen = stateChangeMap[currentState][0];
+                        //nowo dodane:
+                        screenChangeListener.StateChanged(currentScreen);
                     }
 
                     // all current pending state changes have been processed, so clear the list
@@ -111,7 +114,7 @@ namespace StateManagement
             }
         }
 
-        public void setState(string newState)
+        public void SetState(string newState)
         {
             // we have to jump through some hoops to ensure that all state change requests are
             // processed in order because it is possible to change the state from within
@@ -126,18 +129,25 @@ namespace StateManagement
             updateStates();
         }
 
-        public void registerStateChange(string state, GameScreenBase gameScreen)
+        public void RegisterStateChange(string state, GameScreenBase gameScreen)
         {
             if (!state.Equals(States.END_STATE))
             {
                 if (!isRegisteredState(state))
                     stateChangeMap.Add(state, new List<GameScreenBase>());
                 stateChangeMap[state].Add(gameScreen);
+                gameScreen.ScreenChangeRequested += onScreenChangeRequested;
             }
-            if (currentScreen == null)
-            {
-                currentScreen = gameScreen;
-            }
+            //swiezo zakomentowane:
+            //if (currentScreen == null)
+            //{
+            //    currentScreen = gameScreen;
+            //}
+        }
+
+        private void onScreenChangeRequested(object sender, ScreenChangeEventArgs eventArgs)
+        {
+            this.SetState(eventArgs.StateName);
         }
 
         public bool isRegisteredState(string state)
@@ -145,15 +155,15 @@ namespace StateManagement
             return stateChangeMap.ContainsKey(state);
         }
 
-        public void registerStateChangeListener(IStateChangeListener listener)
+        public void RegisterStateChangeListener(IStateChangeListener listener)
         {
             this.screenChangeListener = listener;
-            listener.stateChanged(currentScreen);
+            //listener.StateChanged(currentScreen);
         }
 
         public void registerState(string stateName, GameScreenBase gameState)
         {
-            this.registerStateChange(stateName, gameState);
+            this.RegisterStateChange(stateName, gameState);
         }
     }
 }

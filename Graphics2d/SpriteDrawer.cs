@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework.Graphics;
 using PublicIterfaces;
 using System.Collections.Generic;
 using PublicIterfaces.BasicGameObjects.Presentation;
+using PublicIterfaces.Graphics2d;
 
 namespace Graphics2d
 {
@@ -28,7 +29,7 @@ namespace Graphics2d
                 {
                     //zamiast origin w gameplayu bedzie camera2d.ScreenCenter
                     ISprite sprite = presentation.GetSprite();
-                    spriteBatch.Draw(sprite.GetTexture(), presentation.GetOrigin(), presentation.SourceRect,
+                    spriteBatch.Draw(sprite.GetTexture(), presentation.GetOrigin(), sprite.GetSourceRectangle(),
                                     presentation.GetColor(), presentation.GetRotation(), presentation.GetOrigin() - presentation.GetAbsolutePosition(),
                                     camera2d.Zoom,SpriteEffects.None, presentation.LayerDepth);
                 }

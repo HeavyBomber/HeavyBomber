@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using PublicIterfaces;
 using Microsoft.Xna.Framework.Graphics;
+using PublicIterfaces.BasicGameObjects;
 
 namespace Graphics2d.Sprites
 {

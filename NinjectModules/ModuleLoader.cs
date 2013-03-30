@@ -6,10 +6,11 @@ using GameObjects;
 using GameObjects.Factories;
 using Graphics2d;
 using Input;
+using MathFunctions;
 using Ninject;
 using PublicIterfaces;
 using PublicIterfaces.GameObjectsFactories;
-using PublicIterfaces.Input;
+using PublicIterfaces.Graphics2d;
 using StateManagement;
 using UserInterface;
 
@@ -30,7 +31,8 @@ namespace NinjectModules
                                         new StateManagementModule(),
                                         new GameObjectsModule(),
                                         new UserInterfaceModule(),
-                                        new InputModule());
+                                        new InputModule(),
+                                        new MathFunctionsModule());
 
         }
 
@@ -54,6 +56,11 @@ namespace NinjectModules
             return kernel.Get<ISpriteDrawer>();
         }
 
+        public IMathFunctionsFactory GetMathFunctionsFactory()
+        {
+            return kernel.Get<IMathFunctionsFactory>();
+        }
+
         public ISpriteFontDrawer GetFontDrawer()
         {
             return kernel.Get<ISpriteFontDrawer>();
@@ -62,6 +69,16 @@ namespace NinjectModules
         public IInputManager GetInputManager()
         {
             return kernel.Get<IInputManager>();
+        }
+
+        public IVirtualScreen GetVirtualScreen()
+        {
+            return kernel.Get<IVirtualScreen>();
+        }
+
+        public ICamera2D GetCamera()
+        {
+            return kernel.Get<ICamera2D>();
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using GameObjects.ResourcePool;
-using PublicIterfaces.GameObjects;
+using PublicIterfaces.BasicGameObjects;
 
 namespace GameObjects.Factories
 {

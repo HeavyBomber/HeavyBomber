@@ -1,15 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using PublicIterfaces;
+using PublicIterfaces.Graphics2d;
 using PublicIterfaces.ObjectPool;
 
 namespace StateManagement
 {
-    public abstract class GameScreenBase : ISpriteDrawingVisitor
+    public abstract class GameScreenBase
     {
+        public event EventHandler<ScreenChangeEventArgs> ScreenChangeRequested;
+
         private IObjectsPool objectsPool;
         protected IObjectsPool ObjectsPool
         {
@@ -34,7 +38,15 @@ namespace StateManagement
             //    BackButtonReleased(this, null);
         }
 
-        public abstract void Visit(ISpriteDrawer drawer);
-        public abstract void Visit(ISpriteFontDrawer drawer);
+        protected void requestStateChange(string stateName)
+        {
+            if(ScreenChangeRequested != null)
+            {
+                var args = new ScreenChangeEventArgs();
+                args.StateName = stateName;
+                ScreenChangeRequested(this, args);
+            }
+        }
+
     }
 }

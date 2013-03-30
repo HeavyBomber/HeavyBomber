@@ -1,11 +1,13 @@
 using GameObjects.Factories;
+using Input;
+using MathFunctions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using NinjectModules;
 using PublicIterfaces;
 using PublicIterfaces.GameObjectsFactories;
-using PublicIterfaces.Input;
+using PublicIterfaces.Graphics2d;
 using PublicIterfaces.ObjectPool;
 using StateManagement;
 
@@ -16,24 +18,14 @@ namespace Core.Game
         private ModuleLoader loader;
         protected IObjectsPoolsFactory objectsPoolsFactory;
         protected IInputManager inputManager;
-
         private SpriteBatch spriteBatch;
-        private GameScreenBase currentScreen;
-        protected GameScreenBase CurrentScreen
-        {
-            set { currentScreen = value; }
-        }
-
-        private IStateManager stateManager;
-        protected IStateManager StateManager
-        {
-            get { return stateManager; }
-            set { stateManager = value; }
-        }
-
+        protected GameScreenBase currentScreen;
+        protected IStateManager stateManager;
         private ISpriteDrawer spriteDrawer;
         private ISpriteFontDrawer spriteFontDawer;
+        private IVirtualScreen virtualScreen;
         public static bool ExitRequested;
+        protected ICamera2D camera;
 
         protected TiledGame()
         {
@@ -43,11 +35,18 @@ namespace Core.Game
             this.spriteDrawer = loader.GetDrawer();
             this.spriteFontDawer = loader.GetFontDrawer();
             this.inputManager = loader.GetInputManager();
+            this.virtualScreen = loader.GetVirtualScreen();
+            this.camera = loader.GetCamera();
         }
 
         protected IGameObjectsFactory createGameObjectsFactory()
         {
             return loader.GetGameObjectsFactory();
+        }
+
+        protected IMathFunctionsFactory createMathFunctionsFactory()
+        {
+            return loader.GetMathFunctionsFactory();
         }
 
         protected IUserInterfaceFactory createUserInterfaceFactory()
@@ -98,8 +97,8 @@ namespace Core.Game
         protected override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();
-            currentScreen.Visit(spriteDrawer);
-            currentScreen.Visit(spriteFontDawer);
+            virtualScreen.Visit(spriteDrawer);
+            virtualScreen.Visit(spriteFontDawer);
             //drawingVisitor.Visit(currentScreen as IS);
             //drawer.Draw(spriteBatch);
             //currentScreen.Draw(gameTime, spriteBatch);
@@ -109,7 +108,7 @@ namespace Core.Game
 
         protected abstract void initStateManager();
 
-        public void stateChanged(GameScreenBase gameScreen)
+        public void StateChanged(GameScreenBase gameScreen)
         {
             currentScreen = gameScreen;
             //drawer.SetDrawableObjectsProvider(currentScreen);

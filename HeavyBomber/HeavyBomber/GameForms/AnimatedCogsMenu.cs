@@ -1,34 +1,20 @@
 using System;
-using System.Collections.Generic;
 using GameObjects.Factories;
-using HeavyBomber.GameStructs;
 using HeavyBomberPrefabricates.MainMenu;
 using MathFunctions;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
 using Prefabricates.Particles;
 using PublicIterfaces;
 using PublicIterfaces.BasicGameObjects;
-using PublicIterfaces.GameObjects;
 using PublicIterfaces.GameObjectsFactories;
-using UserInterface.UI;
 
 namespace HeavyBomber.GameForms
 {
     internal class AnimatedCogsMenu : GameObjectBase
     {
+        public event EventHandler<EventArgs> GameStared;
+
         private const float EASING_FUNCTION_BOUND = 5.12f;
-
-        private readonly Vector2 largeCogPosition = new Vector2(602, 602);
-        private readonly Vector2 largeCogOrigin = new Vector2(0, 480);
-
-        private readonly Vector2 smallCogPosition = new Vector2(296, 296);
-        private readonly Vector2 smallCogOrigin = new Vector2(720, -2);
-
-        private readonly Vector2 backgroundCogPosition = new Vector2(296, 296);
-        private readonly Vector2 backgroundCogOrigin = new Vector2(400, 50);
-
         private GaussianFunction easingFunction;
         private float easingFunctionArg = -EASING_FUNCTION_BOUND;
         private const float ALIGN_ROTATION = 0.050f;
@@ -51,35 +37,51 @@ namespace HeavyBomber.GameForms
 
         public override void Init()
         {
+            const string BACKGROUND_PATH = "Sprites/UI/background";
+            var background = gameObjectsFactory.CreateSprite(BACKGROUND_PATH);
+            this.children.Add(background);
+
             const string FOG_TEXTURE_PATH = "Sprites/UI/fog";
-            var fogTexture = gameObjectsFactory.CreateSpriteObject(FOG_TEXTURE_PATH);
+            var fogTexture = gameObjectsFactory.CreateSprite(FOG_TEXTURE_PATH);
             fogTexture.Init();
             Fog2D fog = new Fog2D();
             fog.Init(800, 480, fogTexture);
-
+            this.children.Add(fog);
 
             const string SMALL_COG_PATH = "Sprites/UI/Menu/smallCog";
-
-            this.backgroundCog = gameObjectsFactory.CreateSpriteObject(SMALL_COG_PATH);
+            this.backgroundCog = gameObjectsFactory.CreateSprite(SMALL_COG_PATH);
             backgroundCog.SetRelativePosition(new Vector2(104, -246));
             backgroundCog.SetRootOrigin(new Vector2(400, 50));
             backgroundCog.Init();
+            this.children.Add(backgroundCog);
 
-            this.smallCog = gameObjectsFactory.CreateSpriteObject(SMALL_COG_PATH);
+            this.smallCog = gameObjectsFactory.CreateSprite(SMALL_COG_PATH);
             smallCog.SetRelativePosition(new Vector2(420, -298));
             smallCog.SetRootOrigin(new Vector2(720, -2));
             smallCog.SetRotation(ALIGN_ROTATION);
             smallCog.Init();
+            this.children.Add(smallCog);
 
-            largeCog.MenuChanged += new EventHandler(largeCog_MenuChanged);
-
+            largeCog.MenuChanged += largeCog_MenuChanged;
+            largeCog.StartClicked += largeCog_StartClicked;
             largeCog.Init();
+            this.children.Add(largeCog);
             base.Init();
         }
 
         void largeCog_MenuChanged(object sender, EventArgs e)
         {
             startRotatingCogs();
+        }
+
+        void largeCog_StartClicked(object sender, EventArgs e)
+        {
+            startRotatingCogs();
+
+            if (GameStared != null)
+            {
+                GameStared(this, EventArgs.Empty);
+            }
         }
 
         private void startRotatingCogs()
@@ -128,11 +130,6 @@ namespace HeavyBomber.GameForms
             largeCog.SetRotation(0);
             smallCog.SetRotation(ALIGN_ROTATION);
             backgroundCog.SetRotation(0);
-        }
-
-        private void selectNewEntries()
-        {
-            rotationMultiplier = 1;
         }
     }
 }

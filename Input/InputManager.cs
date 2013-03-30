@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using PublicIterfaces.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
@@ -23,7 +22,8 @@ namespace Input
         private GamePadState lastButtonState;
         private MouseState currentMouseState;
 
-        private List<IClickListener> clickListeners; 
+        private List<ITapListener> clickListeners; 
+        private List<ISwipeListener> swipeListeners; 
 
         public float MouseX
         {
@@ -54,18 +54,27 @@ namespace Input
         public InputManager()
         {
             TouchPanel.EnabledGestures = GestureType.HorizontalDrag
-                | GestureType.VerticalDrag
-                | GestureType.Tap;
+                                        | GestureType.VerticalDrag
+                                        | GestureType.Tap;
             
-            clickListeners = new List<IClickListener>();
+            clickListeners = new List<ITapListener>();
+            swipeListeners = new List<ISwipeListener>();
         }
 
-        public void RegisterClickListener(IClickListener clickListener)
+        public void RegisterClickListener(ITapListener clickListener)
         {
            if(!clickListeners.Contains(clickListener))
            {
                clickListeners.Add(clickListener);
            }
+        }
+
+        public void RegisterMovementListener(ISwipeListener swipeListener)
+        {
+            if (!swipeListeners.Contains(swipeListener))
+            {
+                swipeListeners.Add(swipeListener);
+            }
         }
 
         public void Update()
@@ -114,6 +123,11 @@ namespace Input
                 {
                     notifyListenersAboutTap(gesteture.Position);
                 }
+                else if(gesteture.GestureType == GestureType.HorizontalDrag ||
+                        gesteture.GestureType == GestureType.VerticalDrag)
+                {
+                    notifyListenersAboutSwipe(gesteture.Delta);
+                }
             }
         }
 
@@ -125,6 +139,15 @@ namespace Input
                 {
                     break;
                 }
+            }
+        }
+
+        private void notifyListenersAboutSwipe(Vector2 delta)
+        {
+            var direction = Direction.Right;
+            foreach (var swipeListener in swipeListeners)
+            {
+                swipeListener.SwipeExecuted(direction);
             }
         }
 

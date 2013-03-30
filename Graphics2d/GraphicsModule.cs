@@ -1,5 +1,6 @@
 ﻿using Ninject.Modules;
 using PublicIterfaces;
+using PublicIterfaces.Graphics2d;
 
 namespace Graphics2d
 {
@@ -11,6 +12,7 @@ namespace Graphics2d
             Bind<ISpriteFontDrawer>().To(typeof(SpriteFontDrawer)).InSingletonScope();
             Bind<ICamera2D>().To(typeof(Camera2D)).InSingletonScope();
             Bind<ISpritesFactory>().To(typeof(SpritesFactory)).InSingletonScope();
+            Bind<IVirtualScreen>().To(typeof(VirtualScreen)).InSingletonScope();
         }
     }
 }

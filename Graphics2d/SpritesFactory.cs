@@ -4,6 +4,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using PublicIterfaces;
+using PublicIterfaces.BasicGameObjects;
+using PublicIterfaces.Graphics2d;
+using SpriteSheetRuntime;
 
 namespace Graphics2d
 {
@@ -30,6 +33,13 @@ namespace Graphics2d
             Texture2D texture = content.Load<Texture2D>(path);
             ISprite sprite = new Sprite(texture);
             return sprite;
+        }
+
+        public IAnimatedSprite CreateAnimatedSpriteFromPath(string path)
+        {
+            SpriteSheet spriteSheet = content.Load<SpriteSheet>(path);
+            IAnimatedSprite animated = new AnimatedSprite(spriteSheet);
+            return animated;
         }
 
         public IFont CreateFontFromPath(string path)

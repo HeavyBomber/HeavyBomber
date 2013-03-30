@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using PublicIterfaces.GameObjects;
+using PublicIterfaces.BasicGameObjects;
 
 namespace GameObjects.ResourcePool
 {

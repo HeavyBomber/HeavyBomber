@@ -62,8 +62,10 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasicObjects\DrawableFontObject.cs" />
-    <Compile Include="BasicObjects\DrawableSpriteObject.cs" />
+    <Compile Include="BasicObjects\DrawableAnimatedSprite.cs" />
+    <Compile Include="BasicObjects\DrawableFont.cs" />
+    <Compile Include="BasicObjects\DrawableMultiSprite.cs" />
+    <Compile Include="BasicObjects\DrawableSprite.cs" />
     <Compile Include="Factories\GameObjectsFacoryBase.cs" />
     <Compile Include="Factories\GameObjectsFactory.cs" />
     <Compile Include="Factories\IUserInterfaceFactory.cs" />

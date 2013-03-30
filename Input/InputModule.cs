@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using PublicIterfaces;
 using Ninject.Modules;
-using PublicIterfaces.Input;
 
 namespace Input
 {

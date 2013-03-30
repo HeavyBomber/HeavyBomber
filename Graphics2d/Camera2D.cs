@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using PublicIterfaces.Graphics2d;
 
 namespace Graphics2d
 {
@@ -26,6 +27,7 @@ namespace Graphics2d
         public  Vector2 ScreenCenter
         {
             get { return screenCenter; }
+            set { this.screenCenter = value; }
         }
 
         public  Vector2 Position
@@ -111,6 +113,21 @@ namespace Graphics2d
                 shakeOffset.Y -= 0.1f;
             }
 
+        }
+
+        public bool IsInUse()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Init()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
 
         public  void Shake()

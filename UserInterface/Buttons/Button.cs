@@ -1,12 +1,12 @@
 ﻿using System;
+using Input;
 using Microsoft.Xna.Framework;
 using PublicIterfaces.BasicGameObjects;
-using PublicIterfaces.Input;
 using PublicIterfaces.UserInterface;
 
 namespace UserInterface.Buttons
 {
-    class Button : Drawable2DContainer, IButton, IClickListener
+    class Button : Drawable2DContainer, IButton, ITapListener
     {
         public event EventHandler Click;
 
@@ -17,11 +17,6 @@ namespace UserInterface.Buttons
             this.AddChild(font);
 
             base.Init();
-        }
-
-        public void setRotation(float angle)
-        {
-            this.rotation = angle;
         }
 
         private void OnClick()

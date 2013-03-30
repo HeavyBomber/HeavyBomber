@@ -6,12 +6,11 @@ using PublicIterfaces.BasicGameObjects.Presentation;
 
 namespace PublicIterfaces.GameObjectsFactories
 {
-    public interface IGameObjectsFactory : IDisposable
+    public interface IGameObjectsFactory
     {
         void SetContentManager(ContentManager content);
-        Drawable2DComposite CreateSpriteObject(string path);
+        Drawable2DComposite CreateSprite(string path);
+        Drawable2DComposite CreateAnimatedSprite(string path);
         Drawable2DComposite CreateFont(string spriteFontPath, string caption);
-        IList<ISpritePresentation> GetDrawableObjects();
-        IList<IFontPresentation> GetDrawableFonts();
     }
 }

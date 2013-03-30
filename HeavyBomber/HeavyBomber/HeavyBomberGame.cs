@@ -70,12 +70,13 @@ namespace HeavyBomber
             factory.SetContentManager(Content);
 
             var userInterfaceFactory = createUserInterfaceFactory();
-            
+            var functionsFactory = createMathFunctionsFactory();
             var menuScreen = new MainMenuScreen(factory, userInterfaceFactory);
-            StateManager.registerStateChange(States.MENU_STATE, menuScreen);
-            menuScreen.Init();
-
-            StateManager.registerStateChangeListener(this);
+            var levelScreen = new LevelScreen(factory, userInterfaceFactory, functionsFactory, camera);
+            stateManager.RegisterStateChange(States.MENU_STATE, menuScreen);
+            stateManager.RegisterStateChange(States.GAMEPLAY_STATE, levelScreen);
+            stateManager.RegisterStateChangeListener(this);
+            stateManager.SetState(States.MENU_STATE);
         }
     }
 }
