@@ -62,11 +62,7 @@
     <Compile Include="Game\TiledGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GameScreens\" />
-    <Folder Include="ObjectProviders\" />
-    <Folder Include="StateManagement\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\GameObjects\GameObjects.csproj">
       <Project>{5042F635-B83A-4AB7-BA79-8C98FBB9879D}</Project>

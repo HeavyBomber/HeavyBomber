@@ -37,36 +37,35 @@ namespace HeavyBomber.GameForms
 
         public override void Init()
         {
+            base.Init();
+
             const string BACKGROUND_PATH = "Sprites/UI/background";
             var background = gameObjectsFactory.CreateSprite(BACKGROUND_PATH);
             this.children.Add(background);
 
             const string FOG_TEXTURE_PATH = "Sprites/UI/fog";
             var fogTexture = gameObjectsFactory.CreateSprite(FOG_TEXTURE_PATH);
-            fogTexture.Init();
             Fog2D fog = new Fog2D();
             fog.Init(800, 480, fogTexture);
             this.children.Add(fog);
 
             const string SMALL_COG_PATH = "Sprites/UI/Menu/smallCog";
-            this.backgroundCog = gameObjectsFactory.CreateSprite(SMALL_COG_PATH);
+            this.backgroundCog = gameObjectsFactory.CreateSprite(SMALL_COG_PATH);          
             backgroundCog.SetRelativePosition(new Vector2(104, -246));
             backgroundCog.SetRootOrigin(new Vector2(400, 50));
-            backgroundCog.Init();
             this.children.Add(backgroundCog);
 
             this.smallCog = gameObjectsFactory.CreateSprite(SMALL_COG_PATH);
-            smallCog.SetRelativePosition(new Vector2(420, -298));
+            smallCog.SetRelativePosition(new Vector2(415, -298));
             smallCog.SetRootOrigin(new Vector2(720, -2));
             smallCog.SetRotation(ALIGN_ROTATION);
-            smallCog.Init();
             this.children.Add(smallCog);
-
+            
             largeCog.MenuChanged += largeCog_MenuChanged;
             largeCog.StartClicked += largeCog_StartClicked;
             largeCog.Init();
+            largeCog.SetRootOrigin(new Vector2(0, 480));
             this.children.Add(largeCog);
-            base.Init();
         }
 
         void largeCog_MenuChanged(object sender, EventArgs e)
@@ -80,7 +79,7 @@ namespace HeavyBomber.GameForms
 
             if (GameStared != null)
             {
-                GameStared(this, EventArgs.Empty);
+               // GameStared(this, EventArgs.Empty);
             }
         }
 

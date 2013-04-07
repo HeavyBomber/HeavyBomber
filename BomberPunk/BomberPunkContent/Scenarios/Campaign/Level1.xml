@@ -3,8 +3,8 @@
   <Asset Type="XMLContent.LevelData">
     <Rows>12</Rows>
     <Cols>16</Cols>
-    <TerrainPaths></TerrainPaths>
-    <EnemyPaths></EnemyPaths>
+    <TerrainTheme>Themes/CampaignWorld1</TerrainTheme>
+    <EnemiesTheme>Themes/CampaignWorld1</EnemiesTheme>
     <Terrain>
 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
 4 0 3 3 0 3 3 0 3 0 0 3 0 0 3 4

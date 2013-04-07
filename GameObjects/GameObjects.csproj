@@ -64,9 +64,9 @@
   <ItemGroup>
     <Compile Include="BasicObjects\DrawableAnimatedSprite.cs" />
     <Compile Include="BasicObjects\DrawableFont.cs" />
-    <Compile Include="BasicObjects\DrawableMultiSprite.cs" />
     <Compile Include="BasicObjects\DrawableSprite.cs" />
-    <Compile Include="Factories\GameObjectsFacoryBase.cs" />
+    <Compile Include="ContentLoader.cs" />
+    <Compile Include="Factories\GameObjectsFactoryBase.cs" />
     <Compile Include="Factories\GameObjectsFactory.cs" />
     <Compile Include="Factories\IUserInterfaceFactory.cs" />
     <Compile Include="Factories\ObjectsPoolsFactory.cs" />

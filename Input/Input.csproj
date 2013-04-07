@@ -62,7 +62,6 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Direction.cs" />
     <Compile Include="IInputManager.cs" />
     <Compile Include="InputManager.cs" />
     <Compile Include="InputModule.cs" />

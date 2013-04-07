@@ -70,6 +70,7 @@
     <Compile Include="SpritesFactory.cs" />
     <Compile Include="Sprites\AnimatedSprite.cs" />
     <Compile Include="Sprites\Font.cs" />
+    <Compile Include="Sprites\MultiSprite.cs" />
     <Compile Include="Sprites\Sprite.cs" />
     <Compile Include="VirtualScreen.cs" />
   </ItemGroup>

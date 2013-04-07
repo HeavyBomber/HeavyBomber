@@ -60,8 +60,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Gameplay\ICameraPositioner.cs" />
-    <Compile Include="Gameplay\Player.cs" />
-    <Compile Include="Gameplay\Scene2D.cs" />
+    <Compile Include="Gameplay\ICollisionMap.cs" />
+    <Compile Include="Gameplay\IScene2D.cs" />
+    <Compile Include="Gameplay\ISceneProperties.cs" />
     <Compile Include="Particles\Fog2D.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -69,6 +70,10 @@
     <ProjectReference Include="..\GameObjects\GameObjects.csproj">
       <Project>{5042F635-B83A-4AB7-BA79-8C98FBB9879D}</Project>
       <Name>GameObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Graphics2d\Graphics2d.csproj">
+      <Project>{0D6D5BB7-D20D-4C5E-A2E1-888B887867D6}</Project>
+      <Name>Graphics2d</Name>
     </ProjectReference>
     <ProjectReference Include="..\Input\Input.csproj">
       <Project>{ED612D7D-1653-4552-9E19-FF0F43DAB8BA}</Project>

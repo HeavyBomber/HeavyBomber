@@ -6,12 +6,13 @@ using Microsoft.Xna.Framework.Content;
 using PublicIterfaces;
 using PublicIterfaces.BasicGameObjects;
 using PublicIterfaces.BasicGameObjects.Presentation;
+using PublicIterfaces.Content;
 using PublicIterfaces.GameObjectsFactories;
 using PublicIterfaces.Graphics2d;
 
 namespace GameObjects.Factories
 {
-    class GameObjectsFactory : GameObjectsFacoryBase, IGameObjectsFactory
+    class GameObjectsFactory : GameObjectsFactoryBase, IGameObjectsFactory
     {
         private ISpritesFactory spritesFactory;
         private IVirtualScreen virtualScreen;
@@ -22,19 +23,14 @@ namespace GameObjects.Factories
             this.virtualScreen = virtualScreen;
         }
 
-        public void SetContentManager(ContentManager content)
-        {
-            spritesFactory.SetContentManager(content);
-        }
-
         public Drawable2DComposite CreateSprite(string path)
         {
             ISprite texture = spritesFactory.CreateSpriteFromPath(path);
             DrawableSprite drawable = fetchObject<DrawableSprite>();
+            drawable.Init();            
             drawable.Color = Color.White;
             drawable.SetSprite(texture);
             virtualScreen.PutOnScreen(drawable);
-            drawable.Init();
             return drawable;
         }
 
@@ -42,10 +38,10 @@ namespace GameObjects.Factories
         {
             IAnimatedSprite texture = spritesFactory.CreateAnimatedSpriteFromPath(path);
             DrawableAnimatedSprite drawable = fetchObject<DrawableAnimatedSprite>();
+            drawable.Init();            
             drawable.Color = Color.White;
             drawable.SetSprite(texture);
             virtualScreen.PutOnScreen(drawable);
-            drawable.Init();
             return drawable;
         }
 
@@ -53,13 +49,18 @@ namespace GameObjects.Factories
         {
             IFont font = spritesFactory.CreateFontFromPath(spriteFontPath);
             DrawableFont drawableFont = fetchObject<DrawableFont>();
+            drawableFont.Init();            
             drawableFont.SetFont(font);
             drawableFont.Color = Color.White;
             drawableFont.SetCaption(caption);
             virtualScreen.PutOnScreen(drawableFont);
-            drawableFont.Init();
 
             return drawableFont;
+        }
+
+        public void SetContentLoader(IContentLoader contentLoader)
+        {
+            spritesFactory.SetContentLoader(contentLoader);
         }
     }
 }

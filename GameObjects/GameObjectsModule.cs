@@ -5,6 +5,7 @@ using System.Text;
 using GameObjects.Factories;
 using Ninject.Modules;
 using PublicIterfaces;
+using PublicIterfaces.Content;
 using PublicIterfaces.GameObjectsFactories;
 
 namespace GameObjects
@@ -14,6 +15,7 @@ namespace GameObjects
         public override void Load()
         {
             Bind<IGameObjectsFactory>().To(typeof(GameObjectsFactory)).InTransientScope();
+            Bind<IContentLoader>().To(typeof(ContentLoader)).InTransientScope();
         }
     }
 }

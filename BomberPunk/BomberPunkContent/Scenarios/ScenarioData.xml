@@ -4,6 +4,7 @@
     <Scenarios>
       <Item>
         <Name>Campaign</Name>
+        <UnlockedBy></UnlockedBy>
         <Description>Main game campaign</Description>
         <LevelPaths>
           <Item>Scenarios/Campaign/Level1</Item>

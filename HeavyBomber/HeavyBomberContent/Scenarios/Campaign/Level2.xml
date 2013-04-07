@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
-  <Asset Type="XMLContent.LevelData">
+  <Asset Type="XMLContent.SceneData">
     <Rows>12</Rows>
     <Cols>16</Cols>
     <TerrainPaths></TerrainPaths>

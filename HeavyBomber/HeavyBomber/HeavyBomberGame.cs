@@ -67,16 +67,17 @@ namespace HeavyBomber
         protected override void initStateManager()
         {
             var factory = createGameObjectsFactory();
-            factory.SetContentManager(Content);
+            contentLoader.SetContentManager(Content);
+            factory.SetContentLoader(contentLoader);
 
             var userInterfaceFactory = createUserInterfaceFactory();
             var functionsFactory = createMathFunctionsFactory();
             var menuScreen = new MainMenuScreen(factory, userInterfaceFactory);
-            var levelScreen = new LevelScreen(factory, userInterfaceFactory, functionsFactory, camera);
+            var levelScreen = new LevelScreen(factory, userInterfaceFactory, functionsFactory, camera, contentLoader);
             stateManager.RegisterStateChange(States.MENU_STATE, menuScreen);
             stateManager.RegisterStateChange(States.GAMEPLAY_STATE, levelScreen);
             stateManager.RegisterStateChangeListener(this);
-            stateManager.SetState(States.MENU_STATE);
+            stateManager.SetState(States.GAMEPLAY_STATE);
         }
     }
 }

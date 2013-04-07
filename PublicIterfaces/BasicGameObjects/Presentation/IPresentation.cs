@@ -5,10 +5,11 @@ namespace PublicIterfaces.BasicGameObjects.Presentation
     public interface IPresentation : IGameObject
     {
         bool IsVisible();
-        float LayerDepth { get; set; }
+        float GetLayerDepth();
         Color GetColor();
         Vector2 GetAbsolutePosition();
         Vector2 GetOrigin();
         float GetRotation();
+        bool HasParent();
     }
 }

@@ -24,7 +24,6 @@ namespace GameObjects.BasicObjects
             return sprite;
         }
 
-        public float LayerDepth { get; set; }
         public Color Color { get; set; }
 
         public override Rectangle GetBounds()

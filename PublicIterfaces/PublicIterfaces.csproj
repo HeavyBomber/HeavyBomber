@@ -62,6 +62,11 @@
     <Compile Include="BasicGameObjects\Drawable2DComposite.cs" />
     <Compile Include="BasicGameObjects\Drawable2DContainer.cs" />
     <Compile Include="BasicGameObjects\EmptyDrawable2DComposite.cs" />
+    <Compile Include="BasicGameObjects\IAnimatedObject.cs" />
+    <Compile Include="BasicGameObjects\Presentation\ISpritePresentation.cs" />
+    <Compile Include="Content\IContentLoader.cs" />
+    <Compile Include="GameData\IScene.cs" />
+    <Compile Include="GameData\IGameWorldTheme.cs" />
     <Compile Include="GameObjectsFactories\IGameObjectsFactory.cs" />
     <Compile Include="Graphics2d\IAnimatedSprite.cs" />
     <Compile Include="Graphics2d\ICamera2D.cs" />
@@ -79,7 +84,6 @@
     <Compile Include="BasicGameObjects\GameObjectBase.cs" />
     <Compile Include="ObjectPool\IObjectsPool.cs" />
     <Compile Include="ObjectPool\IObjectsPoolsFactory.cs" />
-    <Compile Include="BasicGameObjects\Presentation\ISpritePresentation.cs" />
     <Compile Include="Graphics2d\ISprite.cs" />
     <Compile Include="Graphics2d\ISpriteFontDrawer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

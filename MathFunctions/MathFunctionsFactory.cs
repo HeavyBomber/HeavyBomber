@@ -8,7 +8,7 @@ using MathFunctions.Movement;
 
 namespace MathFunctions
 {
-    class MathFunctionsFactory : GameObjectsFacoryBase, IMathFunctionsFactory
+    class MathFunctionsFactory : GameObjectsFactoryBase, IMathFunctionsFactory
     {
         private IInputManager inputManager;
         public MathFunctionsFactory(IInputManager inputManager)
@@ -20,6 +20,7 @@ namespace MathFunctions
         {
             IMovementFunction function = new PlayerMovementFunction();
             inputManager.RegisterMovementListener(function);
+            inputManager.RegisterClickListener(function);
             return function;
         }
     }

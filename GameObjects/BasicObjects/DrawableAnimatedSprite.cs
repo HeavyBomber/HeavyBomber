@@ -1,8 +1,9 @@
-﻿using PublicIterfaces.Graphics2d;
+﻿using PublicIterfaces.BasicGameObjects;
+using PublicIterfaces.Graphics2d;
 
 namespace GameObjects.BasicObjects
 {
-    class DrawableAnimatedSprite : DrawableSprite
+    class DrawableAnimatedSprite : DrawableSprite, IAnimatedObject
     {
         private IAnimatedSprite sprite;
         private double accumulator;
@@ -24,6 +25,11 @@ namespace GameObjects.BasicObjects
                 accumulator -= frameTime;
             }
             base.Update(gameTime);
+        }
+
+        public void SetAnimationIndex(int index)
+        {
+            sprite.SetAnimationIndex(index);
         }
     }
 }

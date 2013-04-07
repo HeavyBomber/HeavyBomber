@@ -5,17 +5,20 @@ namespace PublicIterfaces.BasicGameObjects
 {
     public abstract class Drawable2DComposite : IGameObject
     {
+        private const float DEFAULT_LAYER_DEPTH = 0.5f;
+
         private Drawable2DComposite parent;
         private bool isInUse;
         private bool isVisible;
         protected float rotation;
         protected Vector2 relativePosition;
         private Color color = Color.White;
+        private float layerDepth;
 
         public Drawable2DComposite()
         {
-            createEmptyParent();
             this.isVisible = true;
+            createEmptyParent();
         }
 
         protected virtual void createEmptyParent()
@@ -63,9 +66,16 @@ namespace PublicIterfaces.BasicGameObjects
             this.parent = parent;
         }
 
-        public Drawable2DComposite getParent()
+        public bool HasParent()
         {
-            return parent;
+            if(parent is EmptyDrawable2DComposite)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         public virtual void Update(GameTime gameTime)
@@ -81,6 +91,27 @@ namespace PublicIterfaces.BasicGameObjects
         public virtual void Init()
         {
             this.isInUse = true;
+            setDefaultValues();
+        }
+
+        private void setDefaultValues()
+        {
+            createEmptyParent();
+            this.SetRelativePosition(Vector2.Zero);
+            this.isVisible = true;
+            //this.SetRootOrigin(Vector2.Zero);
+            this.SetRotation(0);
+            this.layerDepth = DEFAULT_LAYER_DEPTH;
+        }
+
+        public virtual void SetLayerDepth(float depth)
+        {
+            this.layerDepth = depth;
+        }
+
+        public float GetLayerDepth()
+        {
+            return layerDepth;
         }
 
         public abstract Rectangle GetBounds();

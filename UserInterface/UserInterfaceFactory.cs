@@ -8,7 +8,7 @@ using UserInterface.Buttons;
 
 namespace UserInterface
 {
-    class UserInterfaceFactory : GameObjectsFacoryBase, IUserInterfaceFactory
+    class UserInterfaceFactory : GameObjectsFactoryBase, IUserInterfaceFactory
     {
         private IList<IButton> buttons = new List<IButton>();
         private IInputManager inputManager;

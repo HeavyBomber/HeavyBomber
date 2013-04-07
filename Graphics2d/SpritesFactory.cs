@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using PublicIterfaces;
 using PublicIterfaces.BasicGameObjects;
+using PublicIterfaces.Content;
 using PublicIterfaces.Graphics2d;
 using SpriteSheetRuntime;
 
@@ -13,38 +14,33 @@ namespace Graphics2d
     public class SpritesFactory : ISpritesFactory
     {
 
-        private ContentManager content;
+        private IContentLoader content;
         //public ISprite createSprite(string path, float layerDepth)
         //{
             
         //}
-        public void SetContentManager(ContentManager contentManager)
+        public void SetContentLoader(IContentLoader contentLoader)
         {
-            this.content = contentManager;
-        }
-
-        public ISprite CreateEmptySprite()
-        {
-            throw new NotImplementedException();
+            this.content = contentLoader;
         }
 
         public ISprite CreateSpriteFromPath(string path)
         {
-            Texture2D texture = content.Load<Texture2D>(path);
+            Texture2D texture = content.LoadAsset<Texture2D>(path);
             ISprite sprite = new Sprite(texture);
             return sprite;
         }
 
         public IAnimatedSprite CreateAnimatedSpriteFromPath(string path)
         {
-            SpriteSheet spriteSheet = content.Load<SpriteSheet>(path);
+            SpriteSheet spriteSheet = content.LoadAsset<SpriteSheet>(path);
             IAnimatedSprite animated = new AnimatedSprite(spriteSheet);
             return animated;
         }
 
         public IFont CreateFontFromPath(string path)
         {
-            SpriteFont spriteFont = content.Load<SpriteFont>(path);
+            SpriteFont spriteFont = content.LoadAsset<SpriteFont>(path);
             IFont font = new Font(spriteFont);
             return font;
         }

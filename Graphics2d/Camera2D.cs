@@ -87,6 +87,8 @@ namespace Graphics2d
             Center(computeProperCenterPoint(Vector2.Zero));
             shakeOffset = new Vector2();
             SwitchSize(new Rectangle(0, 0, 800, 480), new Rectangle(0, 0, 800, 480));
+            this.screenCenter = Vector2.Zero;
+            this.positionValue = Vector2.Zero;
         }
 
         public void SwitchSize(Rectangle screenRect, Rectangle levelRect)
@@ -94,6 +96,7 @@ namespace Graphics2d
             boundsRect = screenRect;
             avaiableRect = levelRect;
             screenCenter = new Vector2(screenRect.X + screenRect.Width / 2, screenRect.Y + screenRect.Height / 2);
+            positionValue = screenCenter;
         }
 
         public void Update(GameTime gameTime)
@@ -250,9 +253,8 @@ namespace Graphics2d
             {
                 centerPoint.Y = avaiableRect.Bottom - BoundsRect.Height + screenCenter.Y;
             }
-            return centerPoint;
 
-            return Vector2.Zero;
+            return centerPoint;
         }
 
         public void Align(Vector2 centerPoint)
@@ -288,8 +290,8 @@ namespace Graphics2d
             else
                 rotationValue = 0;
 
-            MoveHorizontally(distanceX);
-            MoveVertically(distanceY);
+            MoveHorizontally(distanceX * 0.7f);
+            MoveVertically(distanceY * 0.7f);
         }
 
         #endregion

@@ -64,12 +64,14 @@
     <Compile Include="ComboList.cs" />
     <Compile Include="Controls\HudData.cs" />
     <Compile Include="Controls\IndicatorData.cs" />
-    <Compile Include="LevelData.cs" />
+    <Compile Include="SceneData.cs" />
     <Compile Include="EnemyDefinition.cs" />
     <Compile Include="MovePattern.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenario.cs" />
     <Compile Include="ScenarioList.cs" />
+    <Compile Include="ThemeElement.cs" />
+    <Compile Include="ThemeData.cs" />
     <Compile Include="XMLFile.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

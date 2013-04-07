@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using NinjectModules;
 using PublicIterfaces;
+using PublicIterfaces.Content;
 using PublicIterfaces.GameObjectsFactories;
 using PublicIterfaces.Graphics2d;
 using PublicIterfaces.ObjectPool;
@@ -26,6 +27,7 @@ namespace Core.Game
         private IVirtualScreen virtualScreen;
         public static bool ExitRequested;
         protected ICamera2D camera;
+        protected IContentLoader contentLoader;
 
         protected TiledGame()
         {
@@ -37,6 +39,7 @@ namespace Core.Game
             this.inputManager = loader.GetInputManager();
             this.virtualScreen = loader.GetVirtualScreen();
             this.camera = loader.GetCamera();
+            this.contentLoader = loader.GetContentLoader();
         }
 
         protected IGameObjectsFactory createGameObjectsFactory()
@@ -72,6 +75,7 @@ namespace Core.Game
             initStateManager();
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            
         }
 
         protected override void UnloadContent()
@@ -96,7 +100,7 @@ namespace Core.Game
 
         protected override void Draw(GameTime gameTime)
         {
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
             virtualScreen.Visit(spriteDrawer);
             virtualScreen.Visit(spriteFontDawer);
             //drawingVisitor.Visit(currentScreen as IS);

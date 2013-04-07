@@ -60,6 +60,7 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Direction.cs" />
     <Compile Include="MathFunctionsModule.cs" />
     <Compile Include="Movement\IMovementListener.cs" />
     <Compile Include="IMathFunctionsFactory.cs" />

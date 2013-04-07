@@ -41,7 +41,7 @@ namespace Graphics2d
                     var origin = presentation.GetOrigin();
                     spriteBatch.DrawString(font.GetFont(), presentation.GetCaption(), origin,
                                      presentation.GetColor(), presentation.GetRotation(), origin - absolutePosition, camera2d.Zoom,
-                                     SpriteEffects.None, presentation.LayerDepth);
+                                     SpriteEffects.None, presentation.GetLayerDepth());
                 }
             }
         }

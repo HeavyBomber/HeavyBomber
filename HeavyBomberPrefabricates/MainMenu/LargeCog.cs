@@ -31,15 +31,12 @@ namespace HeavyBomberPrefabricates.MainMenu
             this.userInterfaceFactory = userInterfaceFactory;
         }
 
-
         public override void Init()
         {
-            this.SetRootOrigin(new Vector2(0, 480));
-
+            base.Init();
             const string LARGE_COG_PATH = "Sprites/UI/Menu/largeCog";
-            this.cog = gameObjectsFactory.CreateSprite(LARGE_COG_PATH);
+            this.cog = gameObjectsFactory.CreateSprite(LARGE_COG_PATH);            
             cog.SetRelativePosition(new Vector2(-602, -122));
-            cog.Init();
             this.AddChild(cog);
             
             initMenus();
@@ -50,31 +47,31 @@ namespace HeavyBomberPrefabricates.MainMenu
             float halfRotation = MathHelper.ToRadians(180);
             //main menu
             Drawable2DComposite button = createButton("settings", onSettingsMenuSelected);
+            button.Init();            
             button.SetRelativePosition(new Vector2(20, 100));
-            button.Init();
             mainMenu = new Drawable2DContainer();
+            mainMenu.Init();            
             mainMenu.AddChild(button);
-            mainMenu.Init();
             mainMenu.SetRotation(halfRotation);
             this.AddChild(mainMenu);
 
             //settings menu
             button = createButton("back", onBackButtonPressed);
+            button.Init();            
             button.SetRelativePosition(new Vector2(0, 0));
-            button.Init();
             settingsMenu = new Drawable2DContainer();
+            settingsMenu.Init();            
             settingsMenu.AddChild(button);
-            settingsMenu.Init();
             this.AddChild(settingsMenu);
             settingsMenu.Hide();
 
             //exit confirmation menu
             button = createButton("yes", onBackButtonPressed);
+            button.Init();            
             button.SetRelativePosition(new Vector2(0, 0));
-            button.Init();
             exitConfirmationMenu = new Drawable2DContainer();
+            exitConfirmationMenu.Init();                        
             exitConfirmationMenu.AddChild(button);
-            exitConfirmationMenu.Init();
             this.AddChild(exitConfirmationMenu);
             exitConfirmationMenu.Hide();
 
@@ -89,7 +86,6 @@ namespace HeavyBomberPrefabricates.MainMenu
             Drawable2DComposite font = gameObjectsFactory.CreateFont(FONT_PATH, caption);
             var buttonTexture = gameObjectsFactory.CreateSprite("Sprites/UI/Menu/buttonBackground");
             Drawable2DComposite button = userInterfaceFactory.CreateButton(buttonTexture, font, 20, handler);
-
             return button;
         }
 

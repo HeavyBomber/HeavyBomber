@@ -4,6 +4,6 @@ namespace Input
 {
     public interface ISwipeListener
     {
-        void SwipeExecuted(Direction direction);
+        void SwipeExecuted(Vector2 delta);
     }
 }

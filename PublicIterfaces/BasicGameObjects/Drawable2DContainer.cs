@@ -29,6 +29,16 @@ namespace PublicIterfaces.BasicGameObjects
             }
         }
 
+        public override void SetLayerDepth(float depth)
+        {
+            base.SetLayerDepth(depth);
+
+            foreach (var drawable2DComposite in children)
+            {
+                drawable2DComposite.SetLayerDepth(depth);
+            }
+        }
+
         public override Rectangle GetBounds()
         {
             Rectangle bounds = new Rectangle((int)(this.GetAbsolutePosition().X + 0.5),
@@ -68,6 +78,14 @@ namespace PublicIterfaces.BasicGameObjects
             updateChildrenRotation(newRotation - rotation);
             this.rotation = newRotation;
         }
+
+        //public override void SetLayerDepth(float depth)
+        //{
+        //    foreach (var drawable2DComposite in children)
+        //    {
+        //        drawable2DComposite.SetLayerDepth(depth);
+        //    }
+        //}
 
         public override void Rotate(float rotationDelta)
         {

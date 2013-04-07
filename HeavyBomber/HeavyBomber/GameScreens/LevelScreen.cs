@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using GameObjects.Factories;
+using HeavyBomber.GameData;
+using HeavyBomberPrefabricates.Gameplay;
 using Input;
 using MathFunctions;
 using MathFunctions.Movement;
@@ -10,43 +12,57 @@ using Microsoft.Xna.Framework;
 using Prefabricates.Gameplay;
 using PublicIterfaces;
 using PublicIterfaces.BasicGameObjects;
+using PublicIterfaces.Content;
+using PublicIterfaces.GameData;
 using PublicIterfaces.GameObjectsFactories;
 using PublicIterfaces.Graphics2d;
 using StateManagement;
+using XMLContent;
 
 namespace HeavyBomber.GameScreens
 {
     class LevelScreen : GameScreenBase
     {
-        private Scene2D scene;
+        private Scene2D scene2d;
         private IGameObjectsFactory objectsFactory;
         private ICamera2D camera;
         private IMathFunctionsFactory functionsFactory;
         private Player player;
+        private IContentLoader contentLoader;
 
         public LevelScreen(IGameObjectsFactory gameObjectsFactory, IUserInterfaceFactory interfaceFactory,
-            IMathFunctionsFactory functionsFactory, ICamera2D camera2D)
+            IMathFunctionsFactory functionsFactory, ICamera2D camera2D, IContentLoader contentLoader)
         {
+            this.contentLoader = contentLoader;
             this.camera = camera2D;
+            player = new Player();
             this.objectsFactory = gameObjectsFactory;
-            scene = new Scene2D(gameObjectsFactory, interfaceFactory);
+            scene2d = new Scene2D(gameObjectsFactory, new GameplayFactory(gameObjectsFactory), interfaceFactory);
             this.functionsFactory = functionsFactory;
         }
 
         public override void Init()
         {
            // IPlayerMovementFunction movementFunction;
+            var sceneProperties = new SceneProperties();
+            var themeData = contentLoader.LoadAsset<ThemeData>("Themes/CampaignWorld1");
+            var sceneData = contentLoader.LoadAsset<SceneData>("Scenarios/Campaign/Level1");
 
-            player = new Player();
+            Scene scene = new Scene(sceneData);
+            ITheme theme = new Theme(themeData);
+            ICollisionMap collistionMap = new CollisionMap(scene);
+
             var playerPresentation = objectsFactory.CreateAnimatedSprite("Sprites/Hero/Sprites");
+            player.Init(scene2d, playerPresentation as IAnimatedObject, sceneProperties, collistionMap);
+            player.SetRelativePosition(new Vector2(sceneProperties.TileSize));
             player.AddChild(playerPresentation);
 
             IMovementFunction movementFunction = functionsFactory.CreatePlayerMovement(player);
             movementFunction.RegisterMovmentListener(player);
 
-            player.Init();
+            scene2d.Init(camera, theme, sceneProperties, scene, player);
 
-            scene.Init(new Rectangle(0, 0, 900, 500), camera, player);
+            
         }
 
         //private Board currentBoard;
@@ -136,6 +152,7 @@ namespace HeavyBomber.GameScreens
         public override void Update(GameTime gameTime)
         {
             player.Update(gameTime);
+            scene2d.Update(gameTime);
         }
     }
 }

@@ -144,10 +144,9 @@ namespace Input
 
         private void notifyListenersAboutSwipe(Vector2 delta)
         {
-            var direction = Direction.Right;
             foreach (var swipeListener in swipeListeners)
             {
-                swipeListener.SwipeExecuted(direction);
+                swipeListener.SwipeExecuted(delta);
             }
         }
 

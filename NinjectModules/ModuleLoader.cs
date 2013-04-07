@@ -9,6 +9,7 @@ using Input;
 using MathFunctions;
 using Ninject;
 using PublicIterfaces;
+using PublicIterfaces.Content;
 using PublicIterfaces.GameObjectsFactories;
 using PublicIterfaces.Graphics2d;
 using StateManagement;
@@ -79,6 +80,11 @@ namespace NinjectModules
         public ICamera2D GetCamera()
         {
             return kernel.Get<ICamera2D>();
+        }
+
+        public IContentLoader GetContentLoader()
+        {
+            return kernel.Get<IContentLoader>();
         }
     }
 }

@@ -1,5 +1,4 @@
-using Microsoft.Xna.Framework;
-using PublicIterfaces.Graphics2d;
+﻿using PublicIterfaces.Graphics2d;
 
 namespace PublicIterfaces.BasicGameObjects.Presentation
 {

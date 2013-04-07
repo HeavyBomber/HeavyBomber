@@ -44,7 +44,7 @@ namespace Graphics2d.Sprites
 
         public Rectangle GetSourceRectangle()
         {
-            return spriteSheet.SourceRectangle((frameIndex + 1) * (animationIndex + 1) - 1);
+            return spriteSheet.SourceRectangle(animationIndex * spriteSheet.FramesPerDir + frameIndex);
         }
     }
 }
